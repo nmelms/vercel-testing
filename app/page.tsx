@@ -16,7 +16,7 @@ export default function Home() {
         const testJson = await testRes.json();
         console.log("Test response:", testJson);
 
-        const edgeRes = await fetch("/edge/user-info");
+        const edgeRes = await fetch("/api/edge");
         const edgeJson = await edgeRes.json();
         console.log("Edge response:", edgeJson);
 
