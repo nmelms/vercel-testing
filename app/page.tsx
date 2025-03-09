@@ -11,14 +11,14 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiRes = await fetch("/api/user-info");
-        const apiJson = await apiRes.json();
-        console.log("API response:", apiJson);
-
         // Fetch from test endpoint
         const testRes = await fetch("/test/user-info");
         const testJson = await testRes.json();
         console.log("Test response:", testJson);
+
+        const apiRes = await fetch("/api/user-info");
+        const apiJson = await apiRes.json();
+        console.log("API response:", apiJson);
       } catch (error) {
         console.log("there was an error:", error);
       }
