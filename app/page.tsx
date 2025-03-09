@@ -16,6 +16,10 @@ export default function Home() {
         const testJson = await testRes.json();
         console.log("Test response:", testJson);
 
+        const edgeRes = await fetch("/edge/user-info");
+        const edgeJson = await edgeRes.json();
+        console.log("Edge response:", edgeJson);
+
         const apiRes = await fetch("/api/user-info");
         const apiJson = await apiRes.json();
         console.log("API response:", apiJson);
