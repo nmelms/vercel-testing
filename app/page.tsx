@@ -20,9 +20,9 @@ export default function Home() {
         const edgeJson = await edgeRes.json();
         console.log("Edge response:", edgeJson);
 
-        const apiRes = await fetch("/api/user-info");
-        const apiJson = await apiRes.json();
-        console.log("joke:", apiJson);
+        let res = await fetch("https://v2.jokeapi.dev/joke/Any");
+        let data = await res.json();
+        console.log(data);
       } catch (error) {
         console.log("there was an error:", error);
       }
