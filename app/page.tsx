@@ -20,7 +20,7 @@ export default function Home() {
         const edgeJson = await edgeRes.json();
         console.log("Edge response:", edgeJson);
 
-        let res = await fetch("https://v2.jokeapi.dev/joke/Any");
+        let res = await fetch("/api/reg");
         let data = await res.json();
         console.log(data);
       } catch (error) {
