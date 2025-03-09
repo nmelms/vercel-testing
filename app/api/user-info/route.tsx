@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-  return NextResponse.json({ message: "Hello from api!" });
+  let res = await fetch("https://v2.jokeapi.dev/joke/Any");
+  let data = await res.json();
+  console.log(data);
+  return NextResponse.json({ data });
 }

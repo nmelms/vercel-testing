@@ -22,7 +22,7 @@ export default function Home() {
 
         const apiRes = await fetch("/api/user-info");
         const apiJson = await apiRes.json();
-        console.log("API response:", apiJson);
+        console.log("joke:", apiJson);
       } catch (error) {
         console.log("there was an error:", error);
       }
