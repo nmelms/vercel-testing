@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { useState } from "react";
 
 let counter = 0;
 
 export async function GET(request: NextRequest) {
-  let res = await fetch("https://v2.jokeapi.dev/joke/Any");
+  let res = await fetch("https://vercel-test.nickmelms.dev");
   let jokeData = await res.json();
   counter++;
 

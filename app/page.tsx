@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const stats = [
   { id: 1, name: "Transactions every 24 hours", value: "44 million" },
@@ -8,21 +8,28 @@ const stats = [
 ];
 
 export default function Home() {
+  const [message, setMessage] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch from test endpoint
-        const testRes = await fetch("/test/user-info");
-        const testJson = await testRes.json();
-        console.log("Test response:", testJson);
+        // const testRes = await fetch("/test/user-info");
+        // const testJson = await testRes.json();
+        // console.log("Test response:", testJson);
 
-        const edgeRes = await fetch("/api/edge");
-        const edgeJson = await edgeRes.json();
-        console.log("Edge response:", edgeJson);
+        // const edgeRes = await fetch("/api/edge");
+        // const edgeJson = await edgeRes.json();
+        // console.log("Edge response:", edgeJson);
 
         let res = await fetch("/api/reg");
         let data = await res.json();
         console.log(data);
+
+        const messageRes = await fetch("https://vercel-test.nickmelms.dev");
+        const message = await messageRes.json();
+        console.log(message);
+        setMessage(message.message);
+        console.log(message);
       } catch (error) {
         console.log("there was an error:", error);
       }
@@ -34,7 +41,7 @@ export default function Home() {
   return (
     <div className="bg-white py-24 sm:py-32 h-screen flex flex-col a">
       <div className="text-black text-center text-[50px] flex-1 flex justify-center mt-[50px] text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-        hello welcome
+        {message}
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
